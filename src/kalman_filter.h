@@ -65,8 +65,18 @@ public:
   void UpdateEKF(const Eigen::VectorXd &z);
 
 private:
+
+  /**
+   * Normalize angles after calculation to angle be between -pi and pi
+   * @param theta Angle to normalize
+   */	
 	float Normalize(float theta);
-	
+
+	/**
+   * Updates the state by using Extended Kalman Filter equations
+   * @param y Error
+   */
+	void DoUpdate(const Eigen::VectorXd &y);
 
 };
 
